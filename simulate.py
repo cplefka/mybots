@@ -6,7 +6,7 @@ import numpy
 import random 
 
 pi = numpy.pi
-STEPS = 500
+STEPS = 800
 
 
 physicsClient = p.connect(p.GUI)
@@ -25,11 +25,11 @@ numsArray = 2*pi*(numpy.arange(STEPS) / STEPS)
 targetAngles = (pi/4)*numpy.sin(numsArray)
 
 amplitudeF = pi/4
-frequencyF = 3 
+frequencyF = 20 
 phaseOffsetF = 0
 
 amplitudeB = pi/4
-frequencyB = 3 
+frequencyB = 20 
 phaseOffsetB = pi/4
 
 targetAnglesF = amplitudeF * numpy.sin(frequencyF * numsArray +phaseOffsetF)
