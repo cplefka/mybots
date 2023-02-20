@@ -6,6 +6,10 @@ GRAV = -90.8
 PI = numpy.pi
 STEPS = 500
 
+amplitude = PI/4
+frequency = 15 
+phaseOffset = 0
+
 
 amplitudeF = PI/4
 frequencyF = 15 
