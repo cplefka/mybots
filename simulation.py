@@ -24,12 +24,12 @@ class SIMULATION:
     def Run(self): 
         for t in range(0,c.STEPS):
             print(t)
-            time.sleep(1/60)
+            time.sleep(1/240)
             p.stepSimulation()
             self.robot.Sense(t) 
             self.robot.Act(t) 
     
-    
+
     def __del__(self):
         p.disconnect()
 
