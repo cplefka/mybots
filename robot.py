@@ -1,7 +1,12 @@
 # robot class 
-from motor import MOTOR 
+import pybullet as p
+import pybullet_data
+import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
+from motor import MOTOR
+import constants as c
 
 class ROBOT:
     def __init__(self):
-        pass
+        self.sensors= {}
+        self.motors = {}
