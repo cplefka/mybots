@@ -6,10 +6,9 @@ import numpy
 import random
 import constants as c 
 from simulation import SIMULATION
-from robot import ROBOT
-from world import WORLD
 
 simulation = SIMULATION()
+simulation.Run()
 
 
 """ physicsClient = p.connect(p.GUI)

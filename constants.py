@@ -4,7 +4,7 @@ import numpy
 GRAV = -90.8
 
 PI = numpy.pi
-STEPS = 800
+STEPS = 1000
 
 
 amplitudeF = PI/4
