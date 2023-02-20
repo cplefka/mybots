@@ -8,9 +8,9 @@ STEPS = 800
 
 
 amplitudeF = PI/4
-frequencyF = 20 
+frequencyF = 15 
 phaseOffsetF = 0
 
 amplitudeB = PI/4
-frequencyB = 20 
+frequencyB = 15 
 phaseOffsetB = PI/4
