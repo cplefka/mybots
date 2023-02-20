@@ -5,9 +5,14 @@ import pybullet_data
 import numpy
 import random
 import constants as c 
+from simulation import SIMULATION
+from robot import ROBOT
+from world import WORLD
+
+simulation = SIMULATION()
 
 
-physicsClient = p.connect(p.GUI)
+""" physicsClient = p.connect(p.GUI)
 p.configureDebugVisualizer(p.COV_ENABLE_GUI,0) 
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
@@ -50,4 +55,4 @@ numpy.save("data/frontLegSensorValues.npy", frontLegSensorValues)
 numpy.save("data/backLegSensorValues.npy", backLegSensorValues)
 numpy.save("data/targetAngles.npy", targetAngles)
 numpy.save("data/targetAnglesF.npy", targetAnglesF)
-numpy.save("data/targetAnglesB.npy", targetAnglesB)
+numpy.save("data/targetAnglesB.npy", targetAnglesB) """
