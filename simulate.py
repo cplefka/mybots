@@ -11,19 +11,7 @@ simulation = SIMULATION()
 simulation.Run()
 
 
-""" physicsClient = p.connect(p.GUI)
-p.configureDebugVisualizer(p.COV_ENABLE_GUI,0) 
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
-
-p.setGravity(0,0,c.GRAV)
-planeId = p.loadURDF("plane.urdf")
-robotId = p.loadURDF("body.urdf")
-
-p.loadSDF("world.sdf") 
-pyrosim.Prepare_To_Simulate(robotId)
-backLegSensorValues = numpy.zeros(c.STEPS)
-frontLegSensorValues = numpy.zeros(c.STEPS)
-
+""" 
 numsArray = 2*c.PI*(numpy.arange(c.STEPS) / c.STEPS)
 targetAngles = (c.PI/4)*numpy.sin(numsArray)
 
