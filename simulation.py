@@ -20,25 +20,15 @@ class SIMULATION:
         self.world = WORLD() 
         self.robot = ROBOT()
 
+
     def Run(self): 
         for t in range(0,c.STEPS):
-            # pyrosim.Set_Motor_For_Joint(
-            # bodyIndex = robotId,
-            # jointName = b'Torso_BackLeg',
-            # controlMode = p.POSITION_CONTROL,
-            # targetPosition = targetAnglesF[i],
-            # maxForce = 500)
-            # pyrosim.Set_Motor_For_Joint(
-            # bodyIndex = robotId,
-            # jointName = b'Torso_FrontLeg',
-            # controlMode = p.POSITION_CONTROL,
-            # targetPosition = targetAnglesB[i],
-            # maxForce = 500)
             print(t)
             time.sleep(1/60)
             p.stepSimulation()
             self.robot.Sense(t) 
             self.robot.Act(t) 
+    
     
     def __del__(self):
         p.disconnect()

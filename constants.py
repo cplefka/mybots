@@ -7,14 +7,14 @@ PI = numpy.pi
 STEPS = 500
 
 amplitude = PI/4
-frequency = 15 
+frequency = 20 
 phaseOffset = 0
 
 
 amplitudeF = PI/4
-frequencyF = 15 
+frequencyF = 20 
 phaseOffsetF = 0
 
 amplitudeB = PI/4
-frequencyB = 15 
+frequencyB = 20 
 phaseOffsetB = PI/4

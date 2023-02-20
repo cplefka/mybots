@@ -9,16 +9,21 @@ class MOTOR:
 
     def __init__(self, jointName):
         self.jointName = jointName
-        MOTOR.Prepare_To_Act(self)
+        self.motorValues = numpy.zeros(c.STEPS)
+        self.Prepare_To_Act()
 
 
     def Prepare_To_Act(self):
         self.amplitude = c.amplitude
         self.phaseOffset = c.phaseOffset
         self.frequency = c.frequency
+        name = str(self.jointName)
 
-        self.numsArray = 2*c.PI*(numpy.arange(c.runs) / c.runs)
-        self.motorValues = self.amplitude*numpy.sin(self.frequency * self.numsArray + self.offset)
+        if ("Front" in name): 
+            self.frequency = self.frequency/2
+
+        self.numsArray = 2*c.PI*(numpy.arange(c.STEPS) / c.STEPS)
+        self.motorValues = self.amplitude*numpy.sin(self.frequency * self.numsArray + self.phaseOffset)
 
     def Set_Value(self, robotId, t): 
         pyrosim.Set_Motor_For_Joint(
@@ -27,4 +32,7 @@ class MOTOR:
             controlMode = p.POSITION_CONTROL,
             targetPosition = self.motorValues[t],
             maxForce = 500)
+        
+    def Save_Values(self):
+        numpy.save("data/" + self.jointName + "MotorValues.npy", self.motorValues)
         
