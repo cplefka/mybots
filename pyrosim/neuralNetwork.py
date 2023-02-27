@@ -28,6 +28,13 @@ class NEURAL_NETWORK:
 
         print("")
 
+    def Update(self):
+        for neuronN in self.neurons:
+            if self.neurons[neuronN].Is_Sensor_Neuron(): 
+                self.neurons[neuronN].Update_Sensor_Neuron() 
+
+
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):
