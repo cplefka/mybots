@@ -12,7 +12,7 @@ import constants as c
 
 class SIMULATION:
     def __init__(self):
-        self.physicsClient = p.connect(p.GUI)
+        self.physicsClient = p.connect(p.DIRECT)
         p.configureDebugVisualizer(p.COV_ENABLE_GUI,0) 
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,c.GRAV)    
@@ -29,7 +29,7 @@ class SIMULATION:
             self.robot.Sense(t) 
             self.robot.Think()
             self.robot.Act(t) 
-            
+
     def Get_Fitness(self):
         self.robot.Get_Fitness()
 

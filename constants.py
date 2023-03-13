@@ -6,10 +6,11 @@ GRAV = -90.8
 PI = numpy.pi
 STEPS = 200
 
+numberOfGenerations = 2
+
 amplitude = PI/4
 frequency = 20 
 phaseOffset = 0
-
 
 amplitudeF = PI/4
 frequencyF = 20 
