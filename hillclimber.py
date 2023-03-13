@@ -29,9 +29,9 @@ class HILL_CLIMBER:
             self.parent = self.child
     
     def Print(self):
-        print()
-        print("fitness coordinates for this simulation:", self.parent.fitness, self.child.fitness)
-        print()
+        print(f'\n')
+        print("fitness coordinates for this simulation:", round(self.parent.fitness,4), round(self.child.fitness,4))
+        print(f'\n')
 
     def Show_Best(self):
         self.parent.Evaluate("GUI")
