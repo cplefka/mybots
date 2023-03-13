@@ -6,7 +6,7 @@ GRAV = -90.8
 PI = numpy.pi
 STEPS = 200
 
-numberOfGenerations = 2
+numberOfGenerations = 10
 
 amplitude = PI/4
 frequency = 20 
