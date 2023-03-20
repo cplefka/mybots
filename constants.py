@@ -19,3 +19,5 @@ phaseOffsetF = 0
 amplitudeB = PI/4
 frequencyB = 20 
 phaseOffsetB = PI/4
+
+sleep = 1/60
