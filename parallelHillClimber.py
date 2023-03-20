@@ -43,7 +43,7 @@ class PARALLEL_HILL_CLIMBER:
     def Print(self):
         print(f'\n')
         for i in self.parents:
-            print("fitness coordinates for this simulation:", self.parents[i].fitness, self.children[i].fitness)
+            print("fitness coordinates for this simulation:", round(self.parents[i].fitness,4), round(self.children[i].fitness,4) )
         print(f'\n')
 
     def Show_Best(self):
