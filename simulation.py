@@ -11,7 +11,7 @@ import time
 import constants as c
 
 class SIMULATION:
-    def __init__(self, directOrGUI):
+    def __init__(self, directOrGUI, solutionID):
         directOrGUI= str(directOrGUI)
         if directOrGUI=="DIRECT":
             self.physicsClient = p.connect(p.DIRECT) 
@@ -24,21 +24,22 @@ class SIMULATION:
         p.setGravity(0,0,c.GRAV)    
 
         self.world = WORLD() 
-        self.robot = ROBOT()
+        self.solutionID = solutionID
+        self.robot = ROBOT(self.solutionID)
         self.directOrGUI = directOrGUI 
 
 
     def Run(self): 
         for t in range(0,c.STEPS):
             #print(t)
-            time.sleep(c.sleep)
             p.stepSimulation()
             self.robot.Sense(t) 
             self.robot.Think()
             self.robot.Act(t) 
+            time.sleep(c.sleep)
 
     def Get_Fitness(self):
-        self.robot.Get_Fitness()
+        self.robot.Get_Fitness(self.solutionID)
 
     def __del__(self):
         p.disconnect()
