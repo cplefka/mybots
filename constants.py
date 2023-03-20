@@ -21,3 +21,4 @@ frequencyB = 20
 phaseOffsetB = PI/4
 
 sleep = 1/60
+populationSize = 2 
