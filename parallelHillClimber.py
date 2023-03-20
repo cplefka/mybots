@@ -1,13 +1,17 @@
 from solution import SOLUTION
 import constants as c
 import copy
+import os 
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
+        os.system("rm brain*.nndf")
+        os.system("rm fitness*.txt")
+        self.nextAvailableID =0 
         self.parents = {}
         for i in range(0, c.populationSize):
-            self.parents[i] = SOLUTION()
-        
+            self.parents[i] = SOLUTION(self.nextAvailableID)
+            self.nextAvailableID+=1
 
     def Evolve(self):
         self.Evaluate(self.parents)
@@ -17,25 +21,44 @@ class PARALLEL_HILL_CLIMBER:
     def Evolve_For_One_Generation(self):
         self.Spawn()
         self.Mutate()
-        self.child.Evaluate("DIRECT")
+        self.Evaluate(self.children)
         self.Print()
         self.Select()
 
     def Spawn(self):
-        self.child = copy.deepcopy(self.parent)
+        self.children = {}
+        for i in self.parents:
+            self.children[i] = copy.deepcopy(self.parents[i])
+            self.nextAvailableID += 1
 
     def Mutate(self):
-        self.child.Mutate()
+        for i in self.children:
+            self.children[i].Mutate()
 
     def Select(self):
-        if (self.parent.fitness < self.child.fitness):
-            self.parent = self.child
+        for i in self.parents:
+            if (self.parents[i].fitness > self.children[i].fitness):
+                self.parents[i] = self.children[i]
     
     def Print(self):
         print(f'\n')
-        print("fitness coordinates for this simulation:", round(self.parent.fitness,4), round(self.child.fitness,4))
+        for i in self.parents:
+            print("fitness coordinates for this simulation:", self.parents[i].fitness, self.children[i].fitness)
         print(f'\n')
 
     def Show_Best(self):
-        pass
-        # self.parent.Evaluate("GUI")
+        bestFitness = self.parents[0].fitness
+        bestFitnessID = 0
+        for i in range(len(self.parents)-1):
+            if (bestFitness > self.parents[i+1].fitness):
+                bestFitness = self.parents[i+1].fitness
+                bestFitnessID = i+1        
+        
+        self.parents[bestFitnessID].Start_Simulation("GUI")
+
+    def Evaluate(self, solutions):
+        for i in solutions:
+            solutions[i].Start_Simulation("DIRECT")
+
+        for i in solutions:
+            solutions[i].Wait_For_Simulation_To_End()
